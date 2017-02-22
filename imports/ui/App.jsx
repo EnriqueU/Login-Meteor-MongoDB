@@ -4,9 +4,13 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Tasks } from '../api/tasks.js';
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 // App component - represents the whole app
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -24,11 +28,18 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <form class="dark-matter" onSubmit={this.handleSubmit.bind(this)} >
+        
           <h1>Registrese</h1>
           <span>Please fill all the texts in the fields.</span>
           <p>
-          <label>
+
+
+          
+<form class="dark-matter" method="post" autocomplete="off" onSubmit={this.handleSubmit.bind(this)} >
+              
+
+
+<label>
             <span>Nombres: </span>
             <input
               type="text"
@@ -43,9 +54,18 @@ class App extends Component {
               ref="textInput2"
               placeholder="Ingrese sus Apellidos"
             />
+
           </label>
+<label>
+<input type="submit" id="submit" name="submit" value="Ingresar" class="boton"/>
+</label>
+            </form>
+          
+
+                    
+            
+          
           </p>
-        </form>
       </div>
     );
   }
